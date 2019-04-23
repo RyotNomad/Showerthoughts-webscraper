@@ -12,6 +12,9 @@ htmlpage = urllib2.urlopen(req).read()
 BeautifulSoupFormat = BeautifulSoup(htmlpage,'lxml')
 name_box = BeautifulSoupFormat.select('a[data-click-id="body"] > h2')
 
+f = open('thoughts.txt','a')
+
 for data in name_box:
+    f.write(data.text.encode('utf-8') + "\n")
     print(data.text)
 
